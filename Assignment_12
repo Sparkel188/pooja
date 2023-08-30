@@ -1,1 +1,195 @@
+1. Difference between Global Scope and Local Scope in JavaScript:
+
+Global Scope: Variables declared in the global scope are accessible from anywhere in the code, both inside and outside of functions. They have the broadest scope and can be considered as accessible throughout the entire program.
+Local Scope: Variables declared within a function have a local scope. They are only accessible within the function in which they are declared. This helps encapsulate variables and prevents unintended interactions with other parts of the code.
+var globalVar = "I am global"; // Global scope
+
+
+function exampleFunction() {
+    var localVar = "I am local"; // Local scope within the function
+    console.log(localVar); // Accessible here
+}
+
+console.log(globalVar); // Accessible here
+// console.log(localVar); // Throws an error, localVar is not defined outside the function
+
+function BankAccount(initialBalance) {
+    let balance = initialBalance; // Encapsulated within the constructor's scope
+
+    this.deposit = function(amount) {
+        if (amount > 0) {
+            balance += amount; // Update encapsulated balance
+            console.log(`Deposited ${amount}. New balance: ${balance}`);
+        }
+    };
+
+    this.getBalance = function() {
+        return balance; // Retrieve encapsulated balance
+    };
+}
+
+const account = new BankAccount(1000);
+account.deposit(500); // Accessible through the public method, encapsulated balance is updated
+console.log(account.getBalance()); // Accessible through the public method, encapsulated balance is retrieved
+
+// Direct access to balance would be prevented due to local scope
+// console.log(account.balance); // Throws an error, balance is not directly accessible
+
+________________________________________________________________________________________________
+
+2. Explain the concept of hoisting in JavaScript. How does it affect variable declarations?
+
+Hoisting refers to the process where the interpreter appears to move declaration to top of the code before execution
+
+let and const through error
+var gives undefined
+
+console.log(hoistedVar); // Outputs: undefined
+var hoistedVar = "I am hoisted"; // Declaration is hoisted to the top
+
+console.log(undeclaredVar); // Throws an error, undeclaredVar is not defined
+
+
+hoistedFunction(); // This works even though the function is called before its declaration
+
+function hoistedFunction() {
+    console.log("I am hoisted!");
+}
+
+notHoistedFunction(); // Throws an error, notHoistedFunction is not a function
+var notHoistedFunction = function() {
+    console.log("I am not hoisted");
+}
+
+
+console.log(hoistedVar); // Output: undefined
+var hoistedVar = "I am hoisted"; // Declaration is hoisted to the top
+console.log(hoistedVar); // Output: "I am hoisted"
+
+console.log(notHoistedVar); // Throws an error, notHoistedVar is not defined
+let notHoistedVar = "I am not hoisted"; // No hoisting with let
+
+_________________________________________________________________________________________________
+
+3. Describe the scoping rules for variables declared with var, let, and const.
+
+var: Variables declared with var are function-scoped. They are accessible within the function they are declared in or throughout the global scope if declared outside of any function.
+
+let and const: Variables declared with let and const are block-scoped. They are limited to the block (curly braces) in which they are defined. let allows reassignment, while const variables are constants and cannot be reassigned after their initial value assignment.
+
+
+function exampleScope() {
+    var localVar = "I am var"; // Function-scoped with var
+    let localLet = "I am let"; // Block-scoped with let
+    const localConst = "I am const"; // Block-scoped with const
+
+    console.log(localVar); // Accessible within the function
+    console.log(localLet); // Accessible within the block
+    console.log(localConst); // Accessible within the block
+}
+
+console.log(localVar); // Throws an error, localVar is not defined here
+console.log(localLet); // Throws an error, localLet is not defined here
+console.log(localConst); // Throws an error, localConst is not defined here
+
+
+__________________________________________________________________________________________________
+
+5. What is OOPS object oriented programming?
+
+Object-Oriented Programming is a programming paradigm that uses objects to structure code. It focuses on organizing data and behavior (functions/methods) into reusable structures called classes. The main principles of OOP are encapsulation, inheritance, and polymorphism.
+
+
+
+6. Member Variables:
+Member variables, also known as instance variables or attributes, are variables declared within a class to store data associated with instances (objects) of that class. They represent the state of the object and can have different values for different instances.
+
+7. Member Functions:
+Member functions, also called methods, are functions defined within a class that define the behavior of the class. They operate on the data stored in the member variables and provide functionality to the instances of the class. 
+
+// Class definition
+class Car {
+    constructor(brand, color) 
+    {
+        this.brand = brand;  // Member Variable
+        this.color = color;  // Member Variable
+        this.speed = 0;      // Member Variable
+    }
+
+    start() // Member Function
+    { 
+        console.log(`${this.brand} car is starting...`);
+        this.speed = 10;
+    }
+
+    stop() // Member Function 
+    {
+        console.log(`${this.brand} car is stopping.`);
+        this.speed = 0;
+    }
+
+    honk() // Member Function
+    {
+        console.log(`${this.brand} car is honking!`);
+    }
+}
+
+// Creating car objects
+const myCar = new Car("Toyota", "Blue");
+const friendCar = new Car("Ford", "Red");
+
+// Using object methods
+myCar.start();
+console.log(myCar.speed); // Output: 10
+myCar.honk(); // Output: Toyota car is honking!
+
+
+
+8. what is a constructor?
+
+A constructor is a special method in a class that is used to initialize the object's attributes (member variables) when an instance (object) of the class is created. It's called automatically when you create a new object from the class.
+
+// Class definition
+class Car {
+    constructor(brand, color) {
+        this.brand = brand; //Member Variable
+        this.color = color;
+        this.speed = 0;
+    }
+
+    start()//  Member Function{
+        console.log(`${this.brand} car is starting...`);
+        this.speed = 10;
+    }
+
+    stop() {
+        console.log(`${this.brand} car is stopping.`);
+        this.speed = 0;
+    }
+
+    honk() {
+        console.log(`${this.brand} car is honking!`);
+    }
+}
+
+// Creating car objects
+const myCar = new Car("Toyota", "Blue");
+const friendCar = new Car("Ford", "Red");
+
+// Using object methods
+myCar.start();
+console.log(myCar.speed); // Output: 10
+myCar.honk(); // Output: Toyota car is honking!
+
+// Inheritance
+class ElectricCar extends Car {
+    start() {
+        console.log(`${this.brand} electric car is silently starting...`);
+        this.speed = 5;
+    }
+}
+
+const electricCar = new ElectricCar("Tesla", "Black");
+electricCar.start(); // Output: Tesla electric car is silently starting...
+
 
