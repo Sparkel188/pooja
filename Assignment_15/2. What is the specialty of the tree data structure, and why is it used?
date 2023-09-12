@@ -1,0 +1,4 @@
+Trees are hierarchical data structures with a root node and branches leading to leaf nodes. They're used to represent hierarchical relationships, making them suitable for file systems, organization charts, and more.
+
+Example:
+A file system is often represented as a tree, with directories (folders) as nodes and files as leaf nodes.

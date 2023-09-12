@@ -1,0 +1,6 @@
+A binary tree is a tree structure where each node has at most two children.
+
+ex 
+      10
+     /  \
+    5    15

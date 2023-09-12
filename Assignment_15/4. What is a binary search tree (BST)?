@@ -1,0 +1,7 @@
+A binary search tree is a binary tree where each node has left children with values less than itself and right children with values greater than itself.
+
+Example
+
+      10
+     /  \
+    5    15
