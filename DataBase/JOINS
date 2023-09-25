@@ -1,0 +1,58 @@
+INNER JOIN:
+Retrieves rows from both tables that have matching values in the specified columns.
+Rows with non-matching values are excluded from the result.
+Commonly used to retrieve data that exists in both tables.
+
+SELECT * FROM table1
+INNER JOIN table2 ON table1.column = table2.column;
+
+------------------------------------------------------------------------------------------------------------
+
+LEFT JOIN (or LEFT OUTER JOIN):
+Retrieves all rows from the left table (the first table specified) and the matching rows from the right table.
+If there is no match in the right table, it returns NULL values for the columns from the right table.
+Commonly used to retrieve all records from the left table and matching data from the right table.
+
+SELECT * FROM table1
+LEFT JOIN table2 ON table1.column = table2.column;
+
+-----------------------------------------------------------------------------------------------------------------------
+
+RIGHT JOIN (or RIGHT OUTER JOIN):
+Similar to the LEFT JOIN but retrieves all rows from the right table and the matching rows from the left table.
+If there is no match in the left table, it returns NULL values for the columns from the left table.
+Used less frequently compared to LEFT JOIN.
+
+SELECT * FROM table1
+RIGHT JOIN table2 ON table1.column = table2.column;
+
+------------------------------------------------------------------------------------------
+
+FULL OUTER JOIN (or FULL JOIN):
+Retrieves all rows when there is a match in either the left or right table.
+Returns NULL values for columns where there is no match.
+Used to retrieve all data from both tables.
+
+SELECT * FROM table1
+FULL OUTER JOIN table2 ON table1.column = table2.column;
+
+----------------------------------------------------------------------------------------------
+
+SELF JOIN:
+Joins a table with itself.
+Useful for hierarchical or recursive data structures, such as organizational charts.
+
+SELECT e1.employee_name, e2.manager_name
+FROM employees e1
+LEFT JOIN employees e2 ON e1.manager_id = e2.employee_id;
+
+-------------------------------------------------------------------------------------------------
+
+CROSS JOIN:
+Generates the Cartesian product of two tables.
+Results in a large number of rows and is typically used with caution.
+
+SELECT * FROM table1
+CROSS JOIN table2;
+These are the fundamental types of joins in SQL. Depending on your data and the specific query requirements, you can choose the appropriate join type to retrieve the desired results. Each type of join serves a different purpose and has its own use cases.
+

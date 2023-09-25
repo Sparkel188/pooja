@@ -1,0 +1,35 @@
+CHAR (Character):
+Used for storing fixed-length character strings.
+The length is specified and fixed (e.g., CHAR(10)).
+
+VARCHAR (Variable Character):
+Used for storing variable-length character strings (text).
+Specify the maximum length (e.g., VARCHAR(255)).
+
+TEXT:
+Used for storing long text or character data.
+Ideal for larger text blocks, such as articles or descriptions.
+
+TINYTEXT 255B
+TEXT 64KB
+MEDIUMTEXT 16MB
+LONGTEXT 44B
+
+
+INT (Integer):
+Used for storing whole numbers.
+Commonly used for primary keys or numeric data.
+
+
+FLOAT:
+Used for storing floating-point numbers (approximate values).
+Suitable for scientific and engineering calculations.
+
+Decimal(p,s) (total number of digits) and the scale (number of decimal places)
+decimal(5, 2)
+30284 => 302.84
+
+FLOAT 
+
+
+

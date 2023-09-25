@@ -1,0 +1,30 @@
+DBMS store data in files or excel sheets
+problems  
+inconsistency changes in database wont change everywhere or other files
+retrival of data is not easy 
+formation of reationship btw tables not possible
+duplication problems
+
+SQL or Structured Query Language is used to communicate with the datadase
+
+sql can perform various tasks like create, add, drop, update and  modify
+
+where as in using SQL 
+its secure backups efficent storage and retrival of data
+
+
+
+TWO TYPES OF DBMS 
+Relational  data stored in tables
+NON Relational json, xml,excel other file 
+
+
+KEY
+Atrribute or set of Attrbutes that can uniqually identify a row in a table
+
+Primary key Its a candidate key which is choose by database architure
+Foriegn key Its a primary key of other table
+super key Set of attributes uniquely identify a row 
+
+
+ 

@@ -1,0 +1,5 @@
+avg(expr) − average value for rows within the group
+count(expr) − count of values for rows within the group
+max(expr) − maximum value within the group
+min(expr) − minimum value within the group
+sum(expr) − sum of values within the group
